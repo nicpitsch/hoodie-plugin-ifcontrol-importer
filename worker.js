@@ -16,7 +16,7 @@ module.exports = function (hoodie, callback) {
   //   else // optional
   //     try again in 5 minutes
 
-  var defaultFixtureDir = '/home/ifcontrol/www/ifcontrol-map-data';
+  var defaultFixtureDir = '/home/ifcontrol/www/ifcontrol-map-data/data';
   var fixtureDir = process.env['IFCONTROL_MAP_DATA_DIR'] || defaultFixtureDir;
 
   var importFixtures = function importFixtures(user) {

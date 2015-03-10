@@ -34,7 +34,7 @@ module.exports = function (hoodie, callback) {
       var getId = function getId(assetData) {
         return crypt.createHash('sha256')
           .update(assetData)
-          .hash.digest('hex');
+          .digest('hex');
       };
 
       var assetPath = path.join(assetDir, asset);
@@ -59,9 +59,16 @@ module.exports = function (hoodie, callback) {
       return;
     }
 
-    var assets = fs.readdirSync(assetDir);
+    var hiddenFiles = function hiddenFiles(filename) {
+      return filename[0] != '.';
+    };
+
+    var assets = fs.readdirSync(assetDir)
+      .filter(hiddenFiles);
+
     console.log(assets);
     assets.forEach(importAsset);
+
     console.log('done importing all assets', assets);
   };
 

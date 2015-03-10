@@ -32,9 +32,9 @@ module.exports = function (hoodie, callback) {
       };
 
       var getId = function getId(assetData) {
-        var hash = crypt.createHash('sha256');
-        hash.update(assetData);
-        return hash.digest('hex');
+        return crypt.createHash('sha256')
+          .update(assetData)
+          .hash.digest('hex');
       };
 
       var assetPath = path.join(assetDir, asset);

@@ -16,7 +16,8 @@ module.exports = function (hoodie, callback) {
   //   else // optional
   //     try again in 5 minutes
 
-  var fixtureDir = '/tmp/ifcontrol';
+  var defaultFixtureDir = '/home/ifcontrol/ifcontrol-map-data';
+  var fixtureDir = process.env['IFCONTROL_MAP_DATA_DIR'] || defaultFixtureDir;
 
   var importFixtures = function importFixtures(user) {
     console.log('import for ', user.hoodieId);
